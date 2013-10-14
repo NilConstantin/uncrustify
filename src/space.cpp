@@ -342,8 +342,8 @@ static argval_t do_space(chunk_t *first, chunk_t *second, int& min_sp, bool comp
    }
 
    /* puts a space in the rare '+-' or '-+' */
-   if (((first->type == CT_NEG) || (first->type == CT_POS) || (first->type == CT_ARITH)) &&
-       ((second->type == CT_NEG) || (second->type == CT_POS) || (second->type == CT_ARITH)))
+   if (((first->type == CT_NEG) || (first->type == CT_POS)) &&
+       ((second->type == CT_NEG) || (second->type == CT_POS)))
    {
       log_rule("ADD");
       return(AV_ADD);
