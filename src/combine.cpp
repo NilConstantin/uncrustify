@@ -3480,9 +3480,13 @@ static void mark_cpp_constructor(chunk_t *pc)
          }
       }
    }
-   if ((tmp != NULL) && (tmp->type == CT_BRACE_OPEN))
+   if ((tmp != NULL) && tmp->type == CT_BRACE_OPEN)
    {
-      set_paren_parent(tmp, CT_FUNC_CLASS);
+      chunk_t * prev = chunk_get_prev_ncnl(tmp);
+      if ((prev == NULL) || (prev->type != CT_COMMA && prev->type != CT_FPAREN_OPEN && prev->type != CT_ASSIGN))
+      {
+          set_paren_parent(tmp, CT_FUNC_CLASS);
+      }
    }
 }
 
