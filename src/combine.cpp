@@ -964,7 +964,7 @@ void do_symbol_check(chunk_t *prev, chunk_t *pc, chunk_t *next)
                  (tmp->type == CT_QUALIFIER)))
             {
                prev->type   = CT_TYPE;
-               pc->type     = CT_ADDR;
+               pc->type     = CT_BYREF;
                next->flags |= PCF_VAR_1ST;
             }
          }
